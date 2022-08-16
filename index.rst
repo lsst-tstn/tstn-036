@@ -133,4 +133,22 @@ This connector includes the optical feedback wires as well as the power cable. T
 4. Yellow -> Shield
 5. Blue -> Pink
 
+.. figure:: /_static/optical_feedback_wiring.png
+   :name: optical_feedback_wiring_diagram
+   :target: ../_images/optical_feedback_wiring.png
+   :alt: opt_feedback
+
+   Optical Feedback Wiring Diagram from Vendor
+
+
+.. figure:: /_static/exp_board_wiring.png
+   :name: expansion_board_wiring_diagram
+   :target: ../_images/exp_board_wiring.png
+   :alt: exp_board
+
+   LabJack Expansion Board Wiring Diagram
+
+
+
+
 
