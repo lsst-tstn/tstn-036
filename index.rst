@@ -73,7 +73,7 @@ For all of these inputs, we will use flexible I/O, which are configurable 0-2.5V
 
 
 Status: 
-^^^^^^
+^^^^^^^
 •  Error: When the system is in an error state, the status LED will be red. The actual error will be blinked on the error LED, which is separate.
 •  Standby: This mode occurs when the cooldown mode times out waiting for a start operation. The blower is off, there is no Error. When a start operation is received, the blower is turned on, then after a 3 second delay, the lamp ignites the bulb and the lamp system is put into operating mode. This will show a greed LED.
 •  Operating: The blower is on, the bulb is lit, and there is no Error. From here, the user may extinguish the lamp, or adjust the light output. The status LED will be blue as the fan will be running.
