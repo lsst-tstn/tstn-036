@@ -23,10 +23,12 @@ Overview
 2 main elements will be controlled with the LabJack T4: KiloArc White Light Source and a Linear Actuator/Shutter. In addition to the LabJack T4, we will also use an expansion board, which is a modified version of the LabJack CB15 Terminal Board. This expansion board was designed and built by Oliver Wiecha.
 
 **Outputs:**
+
 1. [DAC0] - KiloArc power level; voltage steps for input values (DAC0)
 2. [5V] – Output for optical encoder (on expansion board)
 
 **Inputs:**
+
 1. [FI04] – Error message 
 2. [FI05] – Cooldown status
 3. [FI06] – Standby status 
@@ -41,17 +43,21 @@ Overview
 KiloArc
 =======
 Some of this information is repeated from a couple documents on docushare: 
+
 •  https://docushare.lsst.org/docushare/dsweb/Get/Document-25239/Remote%20control%20option%20for%20the%20KiloArc.pdf
 •  https://docushare.lsst.org/docushare/dsweb/Get/Document-25240/KiloArc%20Lamp%20with%20optional%20computer%20control%20manual%20rev%20N.pdf
 
 Outputs:
 --------
 The power of the bulb in the KiloArc can be controlled using an analog output on the LabJack. There are three operating modes: Off, On (minimum), On (adjusted). They each have a unique input voltage range.
+
 •  Off/Cool Down mode (lamp is off): 0 V to approximately 0.803 V
 •  On (minimum @ 800W): 0.941 – 1.941 V
 •  On (adjusted 800 – 1200 W): 1.961 – 5V. There are 155 steps possible, each corresponding to 0.0196V
+
 Rules:
 ^^^^^^
+
 1. After the system is powered on, the lamp should remain in “cooldown mode” for a minimum of 15 minutes to allow the mercury to evaporate completely. The fan will be running during this time.
 2. When turned off, do not re-ignite the lamp for a minimum of 15 minutes to allow the mercury to condense completely within the lamp bulb. The fan will be running during this time.
 3. If any error condition occurs, including pressing the red EMERGENCY SWITCH (triggered by a fuse), the lamp will immediately extinguish the bulb and keep checking to see if the error has cleared. 
@@ -74,6 +80,7 @@ For all of these inputs, we will use flexible I/O, which are configurable 0-2.5V
 
 Status: 
 ^^^^^^^
+
 •  Error: When the system is in an error state, the status LED will be red. The actual error will be blinked on the error LED, which is separate.
 •  Standby: This mode occurs when the cooldown mode times out waiting for a start operation. The blower is off, there is no Error. When a start operation is received, the blower is turned on, then after a 3 second delay, the lamp ignites the bulb and the lamp system is put into operating mode. This will show a greed LED.
 •  Operating: The blower is on, the bulb is lit, and there is no Error. From here, the user may extinguish the lamp, or adjust the light output. The status LED will be blue as the fan will be running.
@@ -83,14 +90,16 @@ Error:
 ^^^^^^
 All error codes are 1⁄2 second on, 1⁄2 second off, repeating for the number of times as the code number, then 1 1⁄2 second off before repeating the cycle. 
 Code numbers: 
-#1 EMERGENCY KILL SWITCH TRIGGERED
-#2 TEMPERATURE SWITCH FAULT CHASSIS OVERHEATING
-#3 ACCESS DOOR SWITCH NOT SET
-#4 LBM_HOT FROM BALLAST INDICATES BALLAST OVERHEATING
-#5 USB CABLE REMOVED - DISCONNECTED FROM HOST COMPUTER
-#6 AIRFLOW SENSOR DETECTING INADEQUATE COOLING DUE TO LACK OF AIRFLOW
-#7 BULB DIDN'T EXTINGUISH AFTER INSTRUCTED TO DO SO. ENGAGE EMERGENCY KILL SWITCH, WAIT 5 MINUTES, THEN TURN OFF POWER. RESTART SOFTWARE, WAIT 1 MINUTE. TURN ON POWER
-#8 AIRFLOW CIRCUITRY MALFUNCTION 
+
+- #1 EMERGENCY KILL SWITCH TRIGGERED
+- #2 TEMPERATURE SWITCH FAULT CHASSIS OVERHEATING
+- #3 ACCESS DOOR SWITCH NOT SET
+- #4 LBM_HOT FROM BALLAST INDICATES BALLAST OVERHEATING
+- #5 USB CABLE REMOVED - DISCONNECTED FROM HOST COMPUTER
+- #6 AIRFLOW SENSOR DETECTING INADEQUATE COOLING DUE TO LACK OF AIRFLOW
+- #7 BULB DIDN'T EXTINGUISH AFTER INSTRUCTED TO DO SO. ENGAGE EMERGENCY KILL SWITCH, WAIT 5 MINUTES, THEN TURN OFF POWER. RESTART SOFTWARE, WAIT 1 MINUTE. TURN ON POWER
+- #8 AIRFLOW CIRCUITRY MALFUNCTION 
+
 For error codes 1, 2, 3, 6, and 8: (not much that can be done here in software)
 •  If the error was detected when the bulb was not illuminated, the error may be cleared by resetting the emergency kill switch, and the it will go into cooldown mode. Operation of the lamp system may proceed.
 •  If the error was detected when the bulb was illuminated, the Emergency Kill switch must be reset (pull the Emergency Kill switch out from the lamp unit), the error indicator will stop, but the status will indicate that the start process needs to be recommenced. 
@@ -105,12 +114,14 @@ Additionally, there are 2 limit switches in this circuit to indicate when the ac
 
 Parts Used:
 -----------
+
 •  12V power supply: Phoenix Contact AC/DC CONVERTER 12V 120W (Mfr #: 2903158)
 •  Solid state relays x4: crydom EL100D20-05
 •  Limit switches: `SW133-ND‎‎V-15G3-1C25-K‎`
 
 Output:
 -------
+
 •  [5V] - Optical Feedback (on expansion board)
 
 Inputs:
