@@ -61,7 +61,9 @@ Rules:
 1. After the system is powered on, the lamp should remain in “cooldown mode” for a minimum of 15 minutes to allow the mercury to evaporate completely. The fan will be running during this time.
 2. When turned off, do not re-ignite the lamp for a minimum of 15 minutes to allow the mercury to condense completely within the lamp bulb. The fan will be running during this time.
 3. If any error condition occurs, including pressing the red EMERGENCY SWITCH (triggered by a fuse), the lamp will immediately extinguish the bulb and keep checking to see if the error has cleared. 
-a. Note: Once an error is removed, there will likely be an error condition #4 generated and this will clear after a few seconds and the lamp will enter cooldown mode. Operation of the lamp system via normal program control may then proceed. 
+
+Note: Once an error is removed, there will likely be an error condition #4 generated and this will clear after a few seconds and the lamp will enter cooldown mode. Operation of the lamp system via normal program control may then proceed. 
+
 4. The Chiller must be on and circulating water before the WLS can be moved to ON mode.
 5. If the Chiller has an error message, the WLS must be moved to the OFF mode. This includes all temperature errors.
 
